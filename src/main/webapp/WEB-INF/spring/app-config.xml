@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+       
+       <bean id="clientManager" class="es.unileon.springapp.service.SimpleClientManager">
+         <property name="clients">
+            <list>
+                <ref bean="client1"/>
+            </list>
+         </property>
+       </bean>
+
+       <bean id="client1" class="es.unileon.springapp.domain.Client">
+         <property name="dni" value="12345678W"/>
+         <property name="name" value="Tony Stark"/>
+         <property name="accountNumber" value="32184861313483"/>
+       </bean>
+       
+       <bean id="insuranceManager" class="es.unileon.springapp.service.SimpleInsuranceManager">
+         <property name="insurances">
+            <list>
+                <ref bean="insurance1"/>
+                <ref bean="insurance2"/>
+            </list>
+         </property>
+       </bean>
+
+       <bean id="insurance1" class="es.unileon.springapp.domain.Insurance">
+         <property name="insuranceID" value="0001"/>
+         <property name="insuranceDescription" value="Life insurance"/>
+       </bean>
+       
+       <bean id="insurance2" class="es.unileon.springapp.domain.Insurance">
+         <property name="insuranceID" value="0002"/>
+         <property name="insuranceDescription" value="Home insurance"/>
+       </bean>
+
+       <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+         <property name="basename" value="messages"/>
+       </bean>
+
+
+	<!-- Scans the classpath of this application for @Components to deploy as 
+		beans -->
+	<context:component-scan base-package="es.unileon.springapp.web" />
+
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
