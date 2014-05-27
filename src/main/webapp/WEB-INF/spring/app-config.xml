@@ -17,7 +17,7 @@
        <bean id="client1" class="es.unileon.springapp.domain.Client">
          <property name="dni" value="12345678W"/>
          <property name="name" value="Tony Stark"/>
-         <property name="accountNumber" value="32184861313483"/>
+         <property name="accountNumber" value="321848613134"/>
        </bean>
        
        <bean id="insuranceManager" class="es.unileon.springapp.service.SimpleInsuranceManager">
