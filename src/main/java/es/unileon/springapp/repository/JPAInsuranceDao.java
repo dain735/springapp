@@ -26,7 +26,7 @@ public class JPAInsuranceDao implements InsuranceDao {
     @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
     public List<Insurance> getInsuranceList() {
-        return em.createQuery("select p from Product p order by p.id").getResultList();
+        return em.createQuery("select i from Insurance i order by i.insuranceID").getResultList();
     }
 
     @Transactional(readOnly = false)

@@ -1,2 +1,6 @@
-INSERT INTO insurances (insuranceID, description) values('0001', 'Life Insurance');
-INSERT INTO insurances (insuranceID, description) values('0002', 'Home Insurance');
+INSERT INTO insurances (insuranceID, insuranceDescription) values('1', 'Life Insurance');
+INSERT INTO insurances (insuranceID, insuranceDescription) values('2', 'Home Insurance');
+select * from insurances
+
+
+

@@ -7,6 +7,8 @@ USE springapp;
 
 CREATE TABLE insurances (
   insuranceID varchar(4) PRIMARY KEY,
-  description varchar(255)
+  insuranceDescription varchar(255)
 );
 CREATE INDEX insurances_description ON insurances(description);
+
+drop table insurances;
