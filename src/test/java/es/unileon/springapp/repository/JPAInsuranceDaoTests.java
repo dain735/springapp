@@ -28,21 +28,21 @@ public class JPAInsuranceDaoTests {
         assertEquals(insurances.size(), 2, 0);
     }
 
-//    @Test
-//    public void testSaveInsurance() {
-//        List<Insurance> insurances = insuranceDao.getInsuranceList();
-//
-//        Insurance p = insurances.get(0);
-//        Double price = p.getPrice();
-//        p.setPrice(200.12);
-//        insuranceDao.saveInsurance(p);
-//
-//        List<Insurance> updatedInsurances = insuranceDao.getInsuranceList();
-//        Insurance p2 = updatedInsurances.get(0);
-//        assertEquals(p2.getPrice(), 200.12, 0);
-//
-//        p2.setPrice(price);
-//        insuranceDao.saveInsurance(p2);
-//    }
+    @Test
+    public void testSaveInsurance() {
+        List<Insurance> insurances = insuranceDao.getInsuranceList();
+
+        Insurance i = insurances.get(0);
+        String description = i.getInsuranceDescription();
+        i.setInsuranceDescription("Car Insurance");
+        insuranceDao.saveInsurance(i);
+
+        List<Insurance> updatedInsurances = insuranceDao.getInsuranceList();
+        Insurance i2 = updatedInsurances.get(0);
+        assertEquals(i2.getInsuranceDescription(), "Car Insurance");
+
+        i2.setInsuranceDescription(description);
+        insuranceDao.saveInsurance(i2);
+    }
 
 }
