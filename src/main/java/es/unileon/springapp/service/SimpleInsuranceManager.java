@@ -3,25 +3,35 @@ package es.unileon.springapp.service;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import es.unileon.springapp.domain.Client;
 import es.unileon.springapp.domain.Insurance;
+import es.unileon.springapp.repository.InsuranceDao;
 
+@Component
 public class SimpleInsuranceManager implements InsuranceManager {
 
 	private static final long serialVersionUID = 1L;
 	
-	private List<Insurance> insurances;
+	@Autowired
+    private InsuranceDao insuranceDao;
 
-	public void setInsurances(Client client, Insurance insurance) {
-		client.insurance = insurance;
-	}
-
-	public void setInsurances(List<Insurance> insurances) {
-		this.insurances = insurances;
-	}
-
+    public void setInsuranceDao(InsuranceDao insuranceDao) {
+        this.insuranceDao = insuranceDao;
+    }
+    
+//	public void setInsurances(Client client, Insurance insurance) {
+//		client.insurance = insurance;
+//	}
+//
+//	public void setInsurances(List<Insurance> insurances) {
+//		this.insurances = insurances;
+//	}
+//
 	public List<Insurance> getInsurances() {
-		return insurances;
+		return insuranceDao.getInsuranceList();
 	}
 	
 //	public Insurance get(String insuranceId) {
@@ -37,9 +47,10 @@ public class SimpleInsuranceManager implements InsuranceManager {
 //	}
 	
 	public Insurance get(String insuranceId) {
+		List<Insurance> insurances = insuranceDao.getInsuranceList();
 		Insurance insurance = null;
 		boolean found = false;
-		Iterator it = this.insurances.iterator();
+		Iterator it = insurances.iterator();
 		while (it.hasNext() && !found) {
 			insurance = (Insurance)it.next();
 			if (insuranceId.compareTo(insurance.getInsuranceID()) == 0) {

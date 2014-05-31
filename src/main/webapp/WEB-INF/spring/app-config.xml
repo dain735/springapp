@@ -20,24 +20,24 @@
          <property name="accountNumber" value="321848613134"/>
        </bean>
        
-       <bean id="insuranceManager" class="es.unileon.springapp.service.SimpleInsuranceManager">
-         <property name="insurances">
-            <list>
-                <ref bean="insurance1"/>
-                <ref bean="insurance2"/>
-            </list>
-         </property>
-       </bean>
+<!--        <bean id="insuranceManager" class="es.unileon.springapp.service.SimpleInsuranceManager"> -->
+<!--          <property name="insurances"> -->
+<!--             <list> -->
+<!--                 <ref bean="insurance1"/> -->
+<!--                 <ref bean="insurance2"/> -->
+<!--             </list> -->
+<!--          </property> -->
+<!--        </bean> -->
 
-       <bean id="insurance1" class="es.unileon.springapp.domain.Insurance">
-         <property name="insuranceID" value="0001"/>
-         <property name="insuranceDescription" value="Life insurance"/>
-       </bean>
+<!--        <bean id="insurance1" class="es.unileon.springapp.domain.Insurance"> -->
+<!--          <property name="insuranceID" value="0001"/> -->
+<!--          <property name="insuranceDescription" value="Life insurance"/> -->
+<!--        </bean> -->
        
-       <bean id="insurance2" class="es.unileon.springapp.domain.Insurance">
-         <property name="insuranceID" value="0002"/>
-         <property name="insuranceDescription" value="Home insurance"/>
-       </bean>
+<!--        <bean id="insurance2" class="es.unileon.springapp.domain.Insurance"> -->
+<!--          <property name="insuranceID" value="0002"/> -->
+<!--          <property name="insuranceDescription" value="Home insurance"/> -->
+<!--        </bean> -->
 
        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
          <property name="basename" value="messages"/>
